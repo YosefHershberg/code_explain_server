@@ -1,3 +1,11 @@
+const Clerk = require('@clerk/clerk-sdk-node');
+
+function AuthMiddleware() {
+  return Clerk.ClerkExpressRequireAuth({
+    onError: (error) => console.log(error)
+  });
+}
+
 function notFound(req, res, next) {
   res.status(404);
   const error = new Error(`🔍 - Not Found - ${req.originalUrl}`);
@@ -18,4 +26,5 @@ function errorHandler(err, req, res, next) {
 module.exports = {
   notFound,
   errorHandler,
+  AuthMiddleware
 };

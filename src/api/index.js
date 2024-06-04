@@ -32,11 +32,12 @@ router.get('/getentry', async (req, res) => {
   // res.status(500).json({ message: 'Internal error accured' })
 
   const { owner, repoName, path } = req.query
+  
   try {
     const { data } = await axiosClient.get(`https://api.github.com/repos/${owner}/${repoName}/contents/${path || ''}`)
     res.status(200).json(data);
   } catch (error) {
-    console.log(error);
+    // console.log(error);
     res.status(500).json({ message: 'Internal error accured' })
   }
 })

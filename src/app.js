@@ -21,7 +21,7 @@ app.get('/', (req, res) => {
   });
 });
 
-app.use('/api', api);
+app.use('/api', middlewares.AuthMiddleware(), api);
 
 app.use(middlewares.notFound);
 app.use(middlewares.errorHandler);
