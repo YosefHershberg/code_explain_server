@@ -13,7 +13,7 @@ const app = express();
 app.use(morgan('dev'));
 app.use(helmet());
 app.use(cors({
-  origin: process.env.NODE_ENV === 'production' ? process.env.CLIENT_URL : true,
+  origin: process.env.NODE_ENV === 'production' ? process.env.CORS_ORIGIN : true,
 }));
 app.use(express.json());
 
