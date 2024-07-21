@@ -12,10 +12,10 @@ const app = express();
 
 app.use(morgan('dev'));
 app.use(helmet());
-// app.use(cors({
-//   origin: process.env.NODE_ENV === 'production' ? process.env.CORS_ORIGIN : true,
-// }));
-app.use(cors());
+app.use(cors({
+  origin: process.env.NODE_ENV === 'production' ? process.env.CORS_ORIGIN : true,
+}));
+// app.use(cors());
 app.use(express.json());
 
 app.get('/', (req, res) => {
